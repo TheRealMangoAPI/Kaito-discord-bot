@@ -8,6 +8,8 @@ const client = new DJS.Client({
   intents: [
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.MessageContent,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildMembers
   ],
 })
 

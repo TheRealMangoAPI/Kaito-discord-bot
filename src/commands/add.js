@@ -9,7 +9,7 @@ module.exports = {
    * SLASH
    * BOTH
    */
-  type: 'LEGACY',
+  type: 'SLASH',
   testOnly: true,
 
   callback: ({ message, args }) => {
