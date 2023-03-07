@@ -1,7 +1,6 @@
 const { Client, IntentsBitField, Partials, ActivityType } = require('discord.js')
 const CH = require('command-handler')
 const path = require('path')
-require('dotenv/config')
 
 const client = new Client({
   intents: [
@@ -13,23 +12,41 @@ const client = new Client({
   partials: [Partials.Channel],
 })
 
-client.on('ready', () => {
+client.on('ready', async () => {
   console.log('The bot is ready!')
-
+  
   client.user.setActivity({
     name: 'development',
     type: ActivityType.Listening
   })
 
+  let memberCount = client.guilds.cache.reduce(
+    (acc, guild) => acc + (guild.memberCount || 0),
+    0
+  )
+  console.log(`Per shard count: ${memberCount}`)
+
+  try {
+    memberCount = await client.shard.broadcastEval((client) => {
+      return client.guilds.cache.reduce(
+        (acc, guild) => acc + (guild.memberCount || 0),
+        0
+      )
+    })
+
+    memberCount = memberCount.reduce((acc, count) => acc + count, 0)
+
+    console.log(`Total member count: ${memberCount}`)
+  } catch (ignored) {}
+
   new CH({
     client,
     mongoUri: process.env.MONGO_URI,
     commandsDir: path.join(__dirname, 'commands'),
-    featuresDir: path.join(__dirname, 'features'),
-    testServers: ['1082621430803472494'],
-    botOwners: ['691584005266472960'],
+    testServers: ['879296318395277352', '889564838710366248'],
+    botOwners: ['879296318395277352'],
     cooldownConfig: {
-      errorMessage: 'Please wait {TIME} before doing that again',
+      errorMessage: 'Please wait {TIME}',
       botOwnersBypass: false,
       dbRequired: 300, // 5 minutes
     },
