@@ -10,7 +10,7 @@ module.exports = {
 
     callback: (client, interaction) => {
         const embed = new EmbedBuilder()
-            .setDescription(`API Latency: **${client.ws.ping}**ms\nClient Ping: **${message.createdTimestamp - interaction.createdTimestamp}**ms`)
+            .setDescription(`Pong!`)
         
             return {
                 embeds: [embed]

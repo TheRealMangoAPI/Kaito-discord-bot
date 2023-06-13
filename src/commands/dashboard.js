@@ -15,10 +15,9 @@ module.exports = {
     .addComponents(
       new ButtonBuilder()
       .setCustomId('dashboardbutton')
-      .setStyle(ButtonStyle.Success)
+      .setStyle(ButtonStyle.Link)
       .setLabel('Dashboard')
-      //.setURL('https://mangoapi.dev')
-      .setEmoji('👷🏿‍♂️')
+      .setURL('https://mangoapi.dev')
     )
 
     return {

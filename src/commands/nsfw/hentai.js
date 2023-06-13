@@ -23,17 +23,14 @@ module.exports = {
 
 
     autocomplete: (command, argument, instance) => {
-        return ['hentai', 'ass', 'blowjob', 'maid', 'lewdneko', 'pussy', 'school', 'thighs', 'uniform']
+        return ['hentai', 'ass', 'blowjob', 'maid', 'pussy', 'school', 'thighs', 'uniform', 'orgy']
     },
     
     callback: async ({ client, interaction, args, channel, member }) => {
         errorResponse = 'An error occured'
         if (channel.nsfw === false) {
             errorResponse = 'No NSFW channel'
-        } 
-        else if (args[0] === 'lewdneko') {
-            apiResponse = await new akaneko.lewdNeko()
-        } 
+        }
         else if (args[0] === 'hentai') {
             apiResponse = await new akaneko.nsfw.hentai()
         }
@@ -58,6 +55,9 @@ module.exports = {
         else if (args[0] === 'uniform') {
             apiResponse = await new akaneko.nsfw.uniform()
         }
+        else if (args[0] === 'orgy') {
+            apiResponse = await new akaneko.nsfw.orgy()
+        }
         
         
         if (typeof apiResponse === 'undefined') {
@@ -65,7 +65,7 @@ module.exports = {
             delete errorResponse
         }
         else 
-            embed = new EmbedBuilder().setImage(apiResponse).setFooter({ text: `Images by Akaneko API` })
+            embed = new EmbedBuilder().setImage(apiResponse)
             delete apiResponse
         return {
             embeds: [embed]
