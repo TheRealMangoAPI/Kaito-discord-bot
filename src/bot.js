@@ -16,7 +16,7 @@ client.on('ready', async () => {
   console.log('The bot is ready!')
   
   client.user.setActivity({
-    name: 'development',
+    name: 'starting...',
     type: ActivityType.Listening
   })
 

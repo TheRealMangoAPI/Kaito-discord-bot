@@ -1,6 +1,7 @@
 const { Client, IntentsBitField, Partials, ActivityType } = require('discord.js')
 const CH = require('command-handler')
 const path = require('path')
+const mongoose = require('mongoose')
 require('dotenv/config')
 
 const client = new Client({
@@ -16,8 +17,13 @@ const client = new Client({
 client.on('ready', () => {
   console.log('The bot is ready!')
 
+  mongoose.set('strictQuery', false)
+  mongoose.connect(process.env.MONGO_URI, {
+    keepAlive: true,
+  })
+
   client.user.setActivity({
-    name: 'development',
+    name: 'starting...',
     type: ActivityType.Listening
   })
 
