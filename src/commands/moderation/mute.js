@@ -74,7 +74,8 @@ module.exports = {
 
             const embed = new EmbedBuilder()
             .setColor(Colors.Green)
-            .setDescription(`<:success:1118270320000893029> The user <@${user.id}> are muted for \`${time} minute/s\`\n **Reason:** \`${reason}\`.`)
+            .setDescription(`
+            <:verified:1118650085010587688> **The user <@${user.id}> has been muted\n\n > **Duration:** \`${time} minute/s\`\n> **Reason:** \`${reason}\`**`)
 
             return {
                 embeds: [embed]
@@ -82,7 +83,7 @@ module.exports = {
 
         } catch (error) {
 
-            console.log(`There was an error when muting: ${error}`);
+            console.log(`There was an error while muting: ${error}`);
 
         }
 

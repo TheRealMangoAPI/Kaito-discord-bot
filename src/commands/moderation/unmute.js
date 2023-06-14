@@ -58,7 +58,7 @@ module.exports = {
         user.timeout(null)
         const embed = new EmbedBuilder()
         .setColor(Colors.Green)
-        .setDescription(`<:success:1118270320000893029> The user <@${user.id}> are unmuted.`)
+        .setDescription(`<:success:1118270320000893029> The user <@${user.id}> was unmuted.`)
 
         return {
             embeds: [embed]
