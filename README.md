@@ -10,6 +10,7 @@
     An all-in-one Multi Purpose Discord-Bot
     <br/>
     <br/>
+  <h3 align="center">This repo will only be public for a short preiod of time due to special reasons</h3>
   </p>
 </p>
 
