@@ -1,7 +1,7 @@
 const { EmbedBuilder, ApplicationCommandOptionType, Client, Interaction, Colors } = require('discord.js')
 
 module.exports = {
-    description: 'Mute a user',
+    description: 'Ban a user',
 
     type: 'SLASH',
     testOnly: true,
@@ -10,19 +10,13 @@ module.exports = {
     options: [
         {
             name: 'user',
-            description: 'The user you want to mute.',
+            description: 'The user you want to ban.',
             type: ApplicationCommandOptionType.User,
             required: true,
         },
         {
-            name: 'time',
-            description: 'The mute time in minutes',
-            type: ApplicationCommandOptionType.Number,
-            required: true,
-        },
-        {
             name: 'reason',
-            description: 'The reason you want to mute.',
+            description: 'The reason you want to ban.',
             type: ApplicationCommandOptionType.String,
         },
     ],
@@ -30,8 +24,7 @@ module.exports = {
     callback: async ({interaction, args}) => {
 
         const userId = args[0]
-        const time = args[1]
-        const reason = args[2] !== undefined ? args[2] : 'No reason provided';
+        const reason = args[1] !== undefined ? args[1] : 'No reason provided';
         const user = await interaction.guild.members.fetch(userId);
 
         if (userId === interaction.guild.ownerId) {
@@ -39,7 +32,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setDescription('<:failed:1118270103126016041> **You can\'t mute the owner.**')
+                    .setDescription('<:failed:1118270103126016041> **You can\'t ban the owner.**')
                 ]
             }
         } 
@@ -54,7 +47,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setDescription('<:failed:1118270103126016041> **You can\'t mute that user, he has the same/higher role than you.**')
+                    .setDescription('<:failed:1118270103126016041> **You can\'t ban that user, he has the same/higher role than you.**')
                 ]
             }
         }
@@ -64,18 +57,18 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setDescription('<:failed:1118270103126016041> **I can\'t mute that user because they have the same/higher role than me.**')
+                    .setDescription('<:failed:1118270103126016041> **I can\'t ban that user because they have the same/higher role than me.**')
                 ]
             }
         }
 
         try {
-            await user.timeout(time * 60 * 1000, `${reason}`)
+            await user.ban({days: 1, reason: reason})
 
             const embed = new EmbedBuilder()
             .setColor(Colors.Green)
             .setDescription(`
-            <:verified:1118650085010587688> **The user <@${user.id}> has been muted**\n\n > **Duration:** \`${time} minute/s\`\n> **Reason:** \`${reason}\``)
+            <:verified:1118650085010587688> **The user <@${user.id}> has been banned\n\n> **Reason:** \`${reason}\`**`)
 
             return {
                 embeds: [embed]
@@ -83,7 +76,7 @@ module.exports = {
 
         } catch (error) {
 
-            console.log(`There was an error while muting: ${error}`);
+            console.log(`There was an error while banning: ${error}`);
 
         }
 
