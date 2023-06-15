@@ -1,7 +1,7 @@
 const { EmbedBuilder, Colors, ApplicationCommandOptionType } = require('discord.js')
 
 module.exports = {
-    description: 'Mute a user',
+    description: 'Unmute a user',
 
     type: 'SLASH',
     testOnly: true,

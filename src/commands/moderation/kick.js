@@ -32,7 +32,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setDescription('<:failed:1118270103126016041> You can\'t kick the owner.')
+                    .setDescription('<:failed:1118270103126016041> **You can\'t kick the owner.**')
                 ]
             }
         } 
@@ -47,7 +47,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setDescription('<:failed:1118270103126016041> You can\'t kick that user, he has the same/higher role than you.')
+                    .setDescription('<:failed:1118270103126016041> **You can\'t kick that user, he has the same/higher role than you.**')
                 ]
             }
         }
@@ -57,7 +57,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setDescription('<:failed:1118270103126016041> I can\'t kick that user because they have the same/higher role than me.')
+                    .setDescription('<:failed:1118270103126016041> **I can\'t kick that user because they have the same/higher role than me.**')
                 ]
             }
         }
@@ -67,7 +67,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
             .setColor(Colors.Green)
-            .setDescription(`<:verified:1118650085010587688> **The user <@${user.id}> has been kicked\n\n> **Reason:** \`${reason}\`**`)
+            .setDescription(`<:verified:1118650085010587688> **The user <@${user.id}> has been kicked**\n\n> **Reason:** \`${reason}\``)
 
             return {
                 embeds: [embed]
