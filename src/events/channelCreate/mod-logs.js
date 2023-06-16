@@ -22,7 +22,7 @@ module.exports = async (channel, instance) => {
     const mChannel = await channel.guild.channels.cache.get(channelID);
 
     const embed = new EmbedBuilder()
-    .setColor('#1C1F3F')
+    .setColor('#1F51FF')
     .setTitle('Channel Created')
     .addFields({ name: 'Channel Name', value: `${name} -> <#${id}>`, inline: false })
     .addFields({ name: 'Channel Type', value: `${type}`, inline: false })
