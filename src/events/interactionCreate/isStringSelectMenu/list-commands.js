@@ -12,7 +12,7 @@ module.exports = async (interaction) => {
             interaction.update({ embeds: [
             new EmbedBuilder()
                 .setTitle('<:slash_command:1118577403434893352> General')
-                .setDescription('\`\`\`Selcet your command category bellow the message\`\`\`')
+                .setDescription('\`\`\`Select your command category bellow the message\`\`\`')
                 .addFields(
                     { name: '\u200B', value: ' ' },
                     { name: '`soon`', value: 'soon', inline: true},
