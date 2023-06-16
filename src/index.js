@@ -18,6 +18,11 @@ const client = new Client({
 client.on('ready', () => {
   console.log('The bot is ready!')
 
+  client.user.setActivity({
+    name: 'kaitobot.xyz',
+    type: ActivityType.Watching
+  })
+
   mongoose.set('strictQuery', false)
   mongoose.connect(process.env.MONGO_URI, {
     keepAlive: true,
