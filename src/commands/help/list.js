@@ -37,6 +37,9 @@ module.exports = {
             { name: '\u200B', value: ' ' },
             { name: '`/kick`', value: 'Kick a user from the guild', inline: true},
             { name: '`/clear`', value: 'Clear messages in a channel', inline: true},
+            { name: '\u200B', value: ' ' },
+            { name: '`/warn`', value: 'Warn a user from the guild', inline: true},
+            { name: '`/delete-warns`', value: 'Delete warns from a user', inline: true},
           )
           .setColor('#40E0D0')
         ],

@@ -27,14 +27,17 @@ module.exports = async (interaction) => {
                     .setDescription('\`\`\`Selcet your command category bellow the message\`\`\`')
                     .addFields(
                         { name: '\u200B', value: ' ' },
-                        { name: '`/ban`', value: 'Bans a user from the guild', inline: true},
-                        { name: '`/unban`', value: 'Unbans a user from the guild', inline: true},
+                        { name: '`/ban`', value: '└ Bans a user from the guild', inline: true},
+                        { name: '`/unban`', value: '└ Unbans a user from the guild', inline: true},
                         { name: '\u200B', value: ' ' },
-                        { name: '`/mute`', value: 'Mute a user', inline: true},
-                        { name: '`/unmute`', value: 'Unmute a user', inline: true},
+                        { name: '`/mute`', value: '└ Mute a user', inline: true},
+                        { name: '`/unmute`', value: '└ Unmute a user', inline: true},
                         { name: '\u200B', value: ' ' },
-                        { name: '`/kick`', value: 'Kick a user from the guild', inline: true},
-                        { name: '`/clear`', value: 'Clear messages in a channel', inline: true},
+                        { name: '`/kick`', value: '└ Kick a user from the guild', inline: true},
+                        { name: '`/clear`', value: '└ Clear messages in a channel', inline: true},
+                        { name: '\u200B', value: ' ' },
+                        { name: '`/warn`', value: '└ Warn a user from the guild', inline: true},
+                        { name: '`/delete-warns`', value: '└ Delete warns from a user of the guild', inline: true},
                     )
                     .setColor('#40E0D0')
             ]})

@@ -16,7 +16,7 @@ module.exports = {
     },
 ],
 autocomplete: () => {
-  return ['ban', 'unban', 'mute', 'unmute', 'kick', 'clear']
+  return ['ban', 'unban', 'mute', 'unmute', 'kick', 'clear', 'warn', 'delete-warns']
 },
 
   // Invoked when a user runs
@@ -93,6 +93,26 @@ autocomplete: () => {
             new EmbedBuilder()
             .setTitle('Command Information')
             .setDescription('**Usage**\n> \`/clear [number]\`\n\n**Description**\n> Clear the messages in a channel')
+            .setColor('#40E0D0')
+          ]
+        }
+      }
+      if(args[0] === 'warn') {
+        return {
+          embeds: [
+            new EmbedBuilder()
+            .setTitle('Command Information')
+            .setDescription('**Usage**\n> \`/warn [user] [reason]\`\n\n**Description**\n> Warns a user from the guild')
+            .setColor('#40E0D0')
+          ]
+        }
+      }
+      if(args[0] === 'delete-warns') {
+        return {
+          embeds: [
+            new EmbedBuilder()
+            .setTitle('Command Information')
+            .setDescription('**Usage**\n> \`/delete-warns [user] [number]\`\n\n**Description**\n> Delete warns from a user of the guild')
             .setColor('#40E0D0')
           ]
         }
