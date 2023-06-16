@@ -26,7 +26,7 @@ module.exports = {
         embeds: [
           new EmbedBuilder()
           .setTitle('<:slash_command:1118577403434893352> Moderation')
-          .setDescription('\`\`\`Selcet your command category bellow the message\`\`\`')
+          .setDescription('\`\`\`Select your command category bellow the message\`\`\`')
           .addFields(
             { name: '\u200B', value: ' ' },
             { name: '`/ban`', value: 'Bans a user from the guild', inline: true},
