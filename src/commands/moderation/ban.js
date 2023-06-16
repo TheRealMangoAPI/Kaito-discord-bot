@@ -1,7 +1,7 @@
 const { EmbedBuilder, ApplicationCommandOptionType, Client, Interaction, Colors } = require('discord.js')
 
 module.exports = {
-    description: 'Ban a user',
+    description: 'Bans a user',
 
     type: 'SLASH',
     testOnly: true,

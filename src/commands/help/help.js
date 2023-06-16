@@ -18,13 +18,7 @@ module.exports = {
 autocomplete: () => {
   return ['ban', 'unban', 'mute', 'unmute', 'kick', 'clear', 'warn', 'delete-warns']
 },
-
-  // Invoked when a user runs
   callback: ({interaction, args}) => {
-    // Return the same object you would use in
-    // message.reply
-    // or
-    // interaction.reply
 
     if(!args[0]) {
       const EmbedMain = new EmbedBuilder()
@@ -118,7 +112,5 @@ autocomplete: () => {
         }
       }
     }
-
-    
   },
 }
