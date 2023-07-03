@@ -1,5 +1,5 @@
 const { EmbedBuilder, ApplicationCommandOptionType, Colors } = require('discord.js');
-const User = require('../../util/warnSchema')
+const User = require('../../schemas/warnSchema')
 
 module.exports = {
     description: 'Warn a user',

@@ -1,5 +1,5 @@
 const { EmbedBuilder, ApplicationCommandOptionType, Colors } = require('discord.js');
-const User = require('../../util/warnSchema')
+const User = require('../../schemas/warnSchema')
 
 module.exports = {
     description: 'Delete the warns from a user',
@@ -61,43 +61,6 @@ module.exports = {
             ],
         };
         }
-        
-        
-        
-        // User.findOne({ guildId: interaction.guild.id, userId: userId })
-        // .then(async user => {
-        //     if (user) {
-
-        //         if((user.warns - num) <= 0){
-
-        //             user.warns = 0
-        //             await user.save()
-                    
-        //             const WarnedUser = await User.findOne({ guildId: interaction.guild.id, userId: userId })
-        //             embed.setColor(Colors.Green)
-        //             embed.setDescription(`<:verified:1118650085010587688> **Warns were withdrawn from the user <@${userId}>**\n\n> **Deleted warns:** \`${num}\`\n> **Current warns:** \`${WarnedUser.warns}\``)
-
-        //             await User.deleteOne({ guildId: interaction.guild.id, userId: userId })
-
-        //             console.log('1');
-
-        //         }else {
-
-        //             user.warns -= num
-        //             await user.save()
-
-        //             const WarnedUser = await User.findOne({ guildId: interaction.guild.id, userId: userId })
-        //             embed.setColor(Colors.Green)
-        //             embed.setDescription(`<:verified:1118650085010587688> **Warns were withdrawn from the user <@${userId}>**\n\n> **Deleted warns:** \`${num}\`\n> **Current warns:** \`${WarnedUser.warns}\``)
-        //             console.log('2');
-        //         }
-        //     }
-        // })
-        // .catch(error => {
-
-        //     console.error('Fehler beim Überprüfen des Benutzers:', error);
-
-        // })
 
         let embed = new EmbedBuilder();
 
