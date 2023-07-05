@@ -1,6 +1,4 @@
-const { Events } = require('discord.js')
-const User = require('../../../util/giveawaySchema')
-
+const User = require('../../../schemas/giveawaySchema')
 
 module.exports = async (interaction) => {
 

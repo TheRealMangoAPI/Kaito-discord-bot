@@ -10,6 +10,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.ManageChannels],
     options: [
         {
             name: 'duration',

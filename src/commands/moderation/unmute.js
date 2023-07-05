@@ -1,4 +1,4 @@
-const { EmbedBuilder, Colors, ApplicationCommandOptionType } = require('discord.js')
+const { EmbedBuilder, Colors, ApplicationCommandOptionType, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
     description: 'Unmute a user',
@@ -7,6 +7,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.MuteMembers],
     options: [
         {
             name: 'user',

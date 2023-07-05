@@ -8,6 +8,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.ManageMessages],
     options: [
         {
         name: 'user',

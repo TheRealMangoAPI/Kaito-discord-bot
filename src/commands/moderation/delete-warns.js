@@ -1,4 +1,4 @@
-const { EmbedBuilder, ApplicationCommandOptionType, Colors } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandOptionType, Colors, PermissionFlagsBits } = require('discord.js');
 const User = require('../../schemas/warnSchema')
 
 module.exports = {
@@ -8,6 +8,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.ManageMessages],
     options: [
         {
             name: 'user',

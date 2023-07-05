@@ -1,4 +1,4 @@
-const { EmbedBuilder, ApplicationCommandOptionType, Client, Interaction, Colors } = require('discord.js')
+const { EmbedBuilder, ApplicationCommandOptionType, Client, Interaction, Colors, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
     description: 'Unban a user',
@@ -7,6 +7,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.BanMembers],
     options: [
         {
             name: 'userid',

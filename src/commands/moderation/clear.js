@@ -1,4 +1,4 @@
-const { EmbedBuilder, ApplicationCommandOptionType, Colors } = require('discord.js')
+const { EmbedBuilder, ApplicationCommandOptionType, Colors, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
     description: 'Clear the messages',
@@ -7,6 +7,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.ManageMessages],
     options: [
         {
             name: 'number',

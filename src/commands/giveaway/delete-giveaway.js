@@ -1,4 +1,4 @@
-const { EmbedBuilder, ApplicationCommandOptionType, Colors } = require('discord.js')
+const { EmbedBuilder, ApplicationCommandOptionType, Colors, PermissionFlagsBits } = require('discord.js')
 const Giveaway = require('../../util/giveaway')
 const giveawayManager = new Giveaway()
 
@@ -10,6 +10,7 @@ module.exports = {
     testOnly: true,
     guildOnly: false,
     ownerOnly: false,
+    permissions: [PermissionFlagsBits.ManageChannels],
     options: [
         {
             name: 'channel',
