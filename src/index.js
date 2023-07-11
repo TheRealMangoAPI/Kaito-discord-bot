@@ -1,4 +1,4 @@
-const { Client, IntentsBitField, Partials, ActivityType, GatewayIntentBits } = require('discord.js')
+const { Client, IntentsBitField, Partials, ActivityType, GatewayIntentBits, ContextMenuCommandBuilder, ApplicationCommandType } = require('discord.js')
 const CH = require('command-handler')
 const path = require('path')
 const mongoose = require('mongoose')

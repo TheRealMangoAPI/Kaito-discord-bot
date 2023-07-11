@@ -8,7 +8,7 @@ module.exports = {
 
     type: 'SLASH',
     testOnly: true,
-    guildOnly: false,
+    guildOnly: true,
     ownerOnly: false,
     permissions: [PermissionFlagsBits.ManageChannels],
     options: [
