@@ -2,8 +2,6 @@ const User = require('../../../schemas/giveawaySchema')
 
 module.exports = async (interaction) => {
 
-        if(!interaction.isButton()) return
-
         if(interaction.customId === 'join') {
             const message = interaction.message
 
