@@ -1,4 +1,5 @@
 const { EmbedBuilder, ApplicationCommandOptionType, Colors, PermissionFlagsBits, ActionRowBuilder, UserSelectMenuBuilder, ChannelSelectMenuBuilder, ChannelType, ButtonBuilder, ButtonStyle, RoleSelectMenuBuilder } = require('discord.js')
+const modLogs = require('../../schemas/mod-logs.schema')
 
 module.exports = {
     description: 'Set Up the logging system',
@@ -10,6 +11,8 @@ module.exports = {
     permissions: [PermissionFlagsBits.Administrator],
 
     callback: async ({interaction, args}) => {
+
+        
 
         return {
             embeds: [
