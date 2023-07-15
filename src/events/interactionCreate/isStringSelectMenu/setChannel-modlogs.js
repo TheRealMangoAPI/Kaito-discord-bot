@@ -22,7 +22,8 @@ module.exports = async (interaction) => {
         }else {
             new modLogs({
                 guildId: interaction.guild.id,
-                logChannel: firstItemToString(interaction.values)
+                logChannel: firstItemToString(interaction.values),
+                enabled: true
             }).save()
         }
         
