@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const modLogs = new mongoose.Schema({
+const schema = new mongoose.Schema({
   guildId: {
     type: String,
     required: true,
@@ -13,6 +13,6 @@ const modLogs = new mongoose.Schema({
 
 schema.index({}, { unique: false });
 
-const Ticket = mongoose.model('modLogs', schema);
+const ModLogs = mongoose.model('modLogs', schema);
 
-module.exports = modLogs
+module.exports = ModLogs

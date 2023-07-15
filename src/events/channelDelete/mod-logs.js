@@ -1,4 +1,5 @@
 const { AuditLogEvent, EmbedBuilder } = require("discord.js")
+const modlogs = require("../../schemas/mod-logs.schema")
 
 module.exports = async (channel, instance) => {
   channel.guild.fetchAuditLogs({
@@ -18,7 +19,20 @@ module.exports = async (channel, instance) => {
     if (type == 5) type = 'Announcement'
     if (type == 4) type = 'Category'
 
-    const channelID = '1118936418320916570' //Need to connect it do the DB for MultiGuild
+    let channelID
+    const getChannel = await modlogs.findOne({ guildId: channel.guild.id })
+    .then((result) => {
+      if (result) {
+        channelID = result.logChannel;
+        console.log('Log Channel:', channelID);
+      } else {
+        console.log('No matching document found');
+      }
+    })
+    .catch((error) => {
+      console.error('Error retrieving logChannel:', error);
+    });
+
     const mChannel = await channel.guild.channels.cache.get(channelID);
 
     const embed = new EmbedBuilder()
