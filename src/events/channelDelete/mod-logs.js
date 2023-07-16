@@ -22,7 +22,7 @@ module.exports = async (channel, instance) => {
 
       let channelID;
       let isEnabled;
-      const getChannel = await modlogs
+      await modlogs
         .findOne({ guildId: channel.guild.id })
         .then((result) => {
           if (result) {
