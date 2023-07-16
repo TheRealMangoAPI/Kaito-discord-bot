@@ -1,15 +1,11 @@
 const {
   EmbedBuilder,
-  ApplicationCommandOptionType,
-  Colors,
   PermissionFlagsBits,
   ActionRowBuilder,
-  UserSelectMenuBuilder,
   ChannelSelectMenuBuilder,
   ChannelType,
   ButtonBuilder,
   ButtonStyle,
-  RoleSelectMenuBuilder,
 } = require("discord.js");
 const modlogs = require("../../schemas/mod-logs.schema");
 
@@ -35,7 +31,7 @@ module.exports = {
 
     let isEnabled;
 
-    const getEnabled = await modlogs
+    await modlogs
       .findOne({ guildId: interaction.guild.id })
       .then((result) => {
         if (result) {
