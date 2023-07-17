@@ -104,6 +104,6 @@ module.exports = {
               console.error('Fehler beim Überprüfen des Benutzers:', error);
               return '404'
             }
-          }
+        }
     }
 };
