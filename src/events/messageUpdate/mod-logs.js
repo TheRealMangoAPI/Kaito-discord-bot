@@ -1,29 +1,22 @@
 const { AuditLogEvent, EmbedBuilder } = require("discord.js");
 const modlogs = require("../../schemas/mod-logs.schema");
 
-module.exports = async (channel, instance) => {
-  channel.guild
+module.exports = async (message, newMessage, instance) => {
+  message.guild
     .fetchAuditLogs({
-      type: AuditLogEvent.ChannelCreate,
+      type: AuditLogEvent.MessageUpdate,
     })
     .then(async (audit) => {
       const { executor } = audit.entries.first();
 
-      const name = channel.name;
-      const id = channel.id;
-      let type = channel.type;
+      const mes = message.content;
 
-      if (type == 0) type = "Text";
-      if (type == 2) type = "Voice";
-      if (type == 13) type = "Stage";
-      if (type == 15) type = "Form";
-      if (type == 5) type = "Announcement";
-      if (type == 4) type = "Category";
+      if (!mes) return;
 
       let channelID;
       let isEnabled;
       await modlogs
-        .findOne({ guildId: channel.guild.id })
+        .findOne({ guildId: message.guild.id })
         .then((result) => {
           if (result) {
             channelID = result.logChannel;
@@ -38,20 +31,23 @@ module.exports = async (channel, instance) => {
 
       if (!isEnabled) return;
 
-      const mChannel = await channel.guild.channels.cache.get(channelID);
+      const mChannel = await message.guild.channels.cache.get(channelID);
 
       const embed = new EmbedBuilder()
         .setColor("#1F51FF")
-        .setTitle("Channel Created")
+        .setTitle("Message Edited")
         .addFields({
-          name: "Channel Name",
-          value: `${name} -> <#${id}>`,
+          name: "Old Message",
+          value: `${mes}`,
           inline: false,
         })
-        .addFields({ name: "Channel Type", value: `${type}`, inline: false })
-        .addFields({ name: "Channel ID", value: `${id}`, inline: false })
         .addFields({
-          name: "Created By",
+          name: "New Message",
+          value: `${newMessage}`,
+          inline: false,
+        })
+        .addFields({
+          name: "Edited By",
           value: `${executor.tag}`,
           inline: false,
         })

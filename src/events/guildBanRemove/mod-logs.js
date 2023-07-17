@@ -1,29 +1,21 @@
 const { AuditLogEvent, EmbedBuilder } = require("discord.js");
 const modlogs = require("../../schemas/mod-logs.schema");
 
-module.exports = async (channel, instance) => {
-  channel.guild
+module.exports = async (member, instance) => {
+  member.guild
     .fetchAuditLogs({
-      type: AuditLogEvent.ChannelCreate,
+      type: AuditLogEvent.GuildBanRemove,
     })
     .then(async (audit) => {
       const { executor } = audit.entries.first();
 
-      const name = channel.name;
-      const id = channel.id;
-      let type = channel.type;
-
-      if (type == 0) type = "Text";
-      if (type == 2) type = "Voice";
-      if (type == 13) type = "Stage";
-      if (type == 15) type = "Form";
-      if (type == 5) type = "Announcement";
-      if (type == 4) type = "Category";
+      const name = member.user.username;
+      const id = member.user.id;
 
       let channelID;
       let isEnabled;
       await modlogs
-        .findOne({ guildId: channel.guild.id })
+        .findOne({ guildId: member.guild.id })
         .then((result) => {
           if (result) {
             channelID = result.logChannel;
@@ -38,20 +30,19 @@ module.exports = async (channel, instance) => {
 
       if (!isEnabled) return;
 
-      const mChannel = await channel.guild.channels.cache.get(channelID);
+      const mChannel = await member.guild.channels.cache.get(channelID);
 
       const embed = new EmbedBuilder()
         .setColor("#1F51FF")
-        .setTitle("Channel Created")
+        .setTitle("Member Unbanned")
         .addFields({
-          name: "Channel Name",
+          name: "Member Name",
           value: `${name} -> <#${id}>`,
           inline: false,
         })
-        .addFields({ name: "Channel Type", value: `${type}`, inline: false })
-        .addFields({ name: "Channel ID", value: `${id}`, inline: false })
+        .addFields({ name: "Member ID", value: `${id}`, inline: false })
         .addFields({
-          name: "Created By",
+          name: "Banned By",
           value: `${executor.tag}`,
           inline: false,
         })

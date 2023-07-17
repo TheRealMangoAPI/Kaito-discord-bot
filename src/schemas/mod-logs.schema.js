@@ -8,6 +8,10 @@ const schema = new mongoose.Schema({
   logChannel: {
     type: String,
     required: true,
+  },
+  enabled: {
+    type: Boolean,
+    default: false,
   }
 });
 
