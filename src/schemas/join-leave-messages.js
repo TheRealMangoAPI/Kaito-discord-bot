@@ -33,10 +33,6 @@ const schema = new mongoose.Schema({
     type: String,
     default: "Welcome {user.username}"
   },
-  joinCanvasBackgroundURL: {
-    type: String,
-    default: 'https://cdn.pixabay.com/photo/2020/12/25/04/51/polar-lights-5858656_1280.jpg'
-  },
   joinMessageChannel: {
     type: Number,
     default: ''
@@ -73,10 +69,6 @@ const schema = new mongoose.Schema({
   leaveCanvasText: {
     type: String,
     default: "Goodby {user.username}"
-  },
-  leaveCanvasBackgroundURL: {
-    type: String,
-    default: 'https://cdn.pixabay.com/photo/2020/12/25/04/51/polar-lights-5858656_1280.jpg'
   },
 });
 
