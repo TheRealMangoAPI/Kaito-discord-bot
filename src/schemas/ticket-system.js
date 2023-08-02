@@ -5,46 +5,54 @@ const schema = new mongoose.Schema({
         type: String,
         require: true
     },
-    title: {
+    //channel
+    channel: {
         type: String,
-        default: ""
+        default: ''
     },
-    description: {
+    //opener
+    openerTitle: {
         type: String,
-        default: ""
+        default: "Ticket System"
     },
-    color: {
+    openerDescription: {
         type: String,
-        default: ""
+        default: "Open a ticket with a click on the button bellow this message"
     },
-    openertitle: {
+    openerColor: {
         type: String,
-        default: ""
-    },
-    openerdescription: {
-        type: String,
-        default: ""
-    },
-    openercolor: {
-        type: String,
-        default: ""
+        default: "#40E0D0"
     },
     openerButtonColor: {
         type: String,
-        default: ""
+        default: "Green"
     },
     openerButtonText: {
         type: String,
-        default: ""
+        default: "Open"
     },
     openerButtonEmoji: {
         type: String,
-        default: ""
+        default: "🎫 Ticket"
     },
+    //in Ticket
     team: {
         type: [String],
         default: []
+    },
+    inTitle: {
+        type: String,
+        default: 'Hello {user.username}'
+    },
+    inDescription: {
+        type: String,
+        default: 'Our team will take care of you right away.\nPlease describe your problem in the meantime!'
+    },
+    inColor: {
+        type: String,
+        default: '#40E0D0'
     }
+    
 })
 
 schema.index({}, { unique: false });
