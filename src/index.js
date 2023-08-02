@@ -38,7 +38,7 @@ client.on('ready', () => {
     mongoUri: process.env.MONGO_URI,
     commandsDir: path.join(__dirname, 'commands'),
     featuresDir: path.join(__dirname, 'features'),
-    testServers: ['1118243173936922766'],
+    testServers: ['1118243173936922766', '1066649397229781052', '1108810398645354579'],
     botOwners: ['257195970339667979, 746510596144365689'],
     cooldownConfig: {
       errorMessage: 'Please wait {TIME} before doing that again',
