@@ -29,6 +29,18 @@ const schema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    openerButtonColor: {
+        type: String,
+        default: ""
+    },
+    openerButtonText: {
+        type: String,
+        default: ""
+    },
+    openerButtonEmoji: {
+        type: String,
+        default: ""
+    },
     team: {
         type: [String],
         default: []

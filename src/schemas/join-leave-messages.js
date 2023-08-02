@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
   },
   joinMessageType: {
     type: String,
-    default: 'Embed'
+    default: 'embed'
   },
   joinEmbedColor: {
     type: String,
@@ -34,7 +34,7 @@ const schema = new mongoose.Schema({
     default: "Welcome {user.username}"
   },
   joinMessageChannel: {
-    type: Number,
+    type: String,
     default: ''
   },
   //leave

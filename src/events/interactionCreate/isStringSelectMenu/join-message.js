@@ -11,9 +11,8 @@ module.exports = async (interaction) => {
     }
 
     if(interaction.customId === 'setchannel-join-message') {
-        const channel = firstItemToString(await interaction.values)
         await Messages.findOneAndUpdate({ guildId: interaction.guild.id}).then(async (db) => {
-            db.joinMessageChannel = channel
+            db.joinMessageChannel = interaction.values.toString()
             db.save()
         })
 
@@ -80,17 +79,14 @@ module.exports = async (interaction) => {
             switch(messages.joinMessageType) {
                 case 'embed': {
                     option1.setDefault(true)
-                    console.log(option1)
                     break
                 }
                 case 'text': { 
                     option2.setDefault(true)
-                    console.log(option2)
                     break
                 }
                 case 'canvas': {
                     option3.setDefault(true)
-                    console.log(option3)
                     break
                 }
             }

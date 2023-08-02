@@ -91,11 +91,12 @@ module.exports = async (interaction) => {
     }
     if(interaction.customId === 'edit-join-message'){
 
-        await interaction.reply({
+        interaction.reply({
             embeds: [
                 new EmbedBuilder()
                 .setColor('#40E0D0')
-                .setTitle('Choose what you want to edit'),           
+                .setTitle('📝 Choose what you want to edit')
+                .setDescription('\n\n**Valid text tags:**\n\n> `{user.username}` | The username of the user\n> `{user.ping}` | Tag the user, can\'t be used in embed titles\n> `{membercount}` | The member count of the guild\n> `{guild.name}` | The name of the guild\n> `<#[channel id]>` | Tag your channel, replace **[channel id]** with the channel id\n\n**Only working on Community guilds**\n\n> `{channel.rules}` | The community rule channel\n> `{channel.community-update}` | The community update channel'),           
             ],
             components: [
                 new ActionRowBuilder().addComponents(
@@ -153,7 +154,7 @@ module.exports = async (interaction) => {
 
         const message = await Messages.findOne({ guildId: interaction.guild.id})
 
-        interaction.showModal(
+        await interaction.showModal(
             new ModalBuilder()
             .setCustomId('edit-join-canvas-text-modal')
             .setTitle('Edit text')
