@@ -51,8 +51,11 @@ const schema = new mongoose.Schema({
     inColor: {
         type: String,
         default: '#40E0D0'
+    },
+    openMessage: {
+        type: String,
+        default: 'You have succesfull opend a ticket ${ticket}'
     }
-    
 })
 
 schema.index({}, { unique: false });
